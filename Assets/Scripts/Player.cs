@@ -6,10 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed = 10f;
+    public Renderer Renderer => _renderer;
     private Vector3 _target;// точка ,куда наш кубик будет двигаться
     private float _stoppingDistance = 0.1f;// расстояние до точки, на котором кубик должен будет остановиться
     private bool _isMoving;// будем проверять в движении наш кубик или нет
-    public Renderer Renderer => _renderer;
     private Renderer _renderer;
 
     private void Awake()
@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
+        if (transform.position.y < -1)
+        {
+            transform.position = new Vector3(0, 0.5f, 0);
+        }
+
         if (!_isMoving)// если объект стоит , то ничего не делаем, выходим из метода.
         {
             return;
@@ -41,7 +46,7 @@ public class Player : MonoBehaviour
 
         var step = Time.deltaTime * _speed;//шаг,который кубик пройдёт за один update;
         transform.position = Vector3.MoveTowards(transform.position, _target, step);
-
+    
 
     }
 }

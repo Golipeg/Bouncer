@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out var hitInfo, _rayLength, _layer))
+        if (Physics.Raycast(ray, out var hitInfo, _rayLength,_layer))
         {
             if (Input.GetMouseButtonDown(0))
             {

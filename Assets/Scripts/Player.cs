@@ -9,6 +9,13 @@ public class Player : MonoBehaviour
     private Vector3 _target;// точка ,куда наш кубик будет двигаться
     private float _stoppingDistance = 0.1f;// расстояние до точки, на котором кубик должен будет остановиться
     private bool _isMoving;// будем проверять в движении наш кубик или нет
+    public Renderer Renderer => _renderer;
+    private Renderer _renderer;
+
+    private void Awake()
+    {
+        _renderer = GetComponent<Renderer>();
+    }
 
     public void StartMove(Vector3 target)
     {

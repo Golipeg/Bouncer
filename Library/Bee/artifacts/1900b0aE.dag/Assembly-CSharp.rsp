@@ -360,6 +360,8 @@
 "Assets/Scripts/CylinderInstantiation.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/PlayerController.cs"
+"Assets/Scripts/Sphere.cs"
+"Assets/Scripts/SphereInstantiation.cs"
 -langversion:9.0
 
 /deterministic

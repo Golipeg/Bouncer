@@ -20,6 +20,18 @@ public class Cylinder : MonoBehaviour
         GetRandomColor();
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (player != null)
+        {
+            if (_renderer.material.color == player.Renderer.material.color)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void GetRandomPosition()
     {
         transform.position = new Vector3(Random.Range(9f, -9f), 1f, Random.Range(9f, -9f));
